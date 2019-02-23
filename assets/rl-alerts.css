@@ -1,0 +1,92 @@
+/* alerts tag */
+.rl-alerts-tag {
+	float: left;
+	width: 0;
+	height: 0;
+	line-height: 30px;
+	text-indent: -3px;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	border-style: solid;
+	border-width: 0 12px 26px;
+	border-color: #f3d700 transparent;
+	opacity: 0;
+	transition: opacity .5s;
+	cursor: pointer;
+}
+
+.rl-alerts-hidden .rl-alerts-tag {
+	opacity: 1;
+	transition: opacity .5s;
+}
+
+.rl-alerts-tag-total {
+	font-size: 10px;
+	position: absolute;
+	top: 2px;
+	right: -17px;
+	background: #fa9632;
+	border-radius: 100%;
+	height: 13px;
+	width: 13px;
+	color: #fff;
+	text-align: center;
+	line-height: 13px;
+	text-indent: 0;
+	font-weight: 400;
+	box-shadow: 0 0 0 1px #fff;
+}
+
+/* alerts html */
+.rl-alerts {
+	background: #f3d700;
+	max-height: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.rl-alerts-visible .rl-alerts {
+	max-height: 500px;
+	transition: max-height 1s linear;
+}
+
+.rl-alerts-wrapper {
+	overflow: hidden;
+	font-size: 16px;
+	padding: 20px 40px 20px 0;
+}
+
+.rl-alerts a {
+	text-decoration: underline;
+	color: inherit;
+}
+
+.rl-alerts a:hover {
+	text-decoration: none;
+}
+
+.rl-alerts-close {
+	display: block;
+	padding: 5px;
+	right: 25px;
+	font-size: 50px;
+	line-height: 24px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	text-align: center;
+}
+
+.rl-alerts-close:hover {
+	color: #fff;
+}
+
+.rl-alerts-close-text {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
