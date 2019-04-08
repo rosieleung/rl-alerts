@@ -1,12 +1,14 @@
 /* alerts tag */
 .rl-alerts-tag {
-	float: left;
+	float: right;
 	width: 0;
 	height: 0;
-	line-height: 30px;
-	text-indent: -3px;
+	line-height: 35px;
+	text-indent: -.15em;
 	color: #000;
 	font-size: 16px;
+	font-family: helvetica, arial, sans-serif;
+	text-shadow: none;
 	font-weight: bold;
 	text-decoration: none;
 	position: relative;
@@ -24,28 +26,30 @@
 }
 
 .rl-alerts-tag-total {
-	font-size: 10px;
+	font-size: 9px;
 	position: absolute;
 	top: 2px;
-	right: -17px;
-	background: #fa9632;
+	right: -15px;
+	background: #000;
 	border-radius: 100%;
 	height: 13px;
 	width: 13px;
 	color: #fff;
 	text-align: center;
-	line-height: 13px;
+	line-height: 12px;
 	text-indent: 0;
 	font-weight: 400;
-	box-shadow: 0 0 0 1px #fff;
+	border: 1px solid;
 }
 
 /* alerts html */
 .rl-alerts {
-	background: #f3d700;
+	background: #fa9632;
+	color: #fff;
 	max-height: 0;
 	overflow: hidden;
 	position: relative;
+	margin-top: -1px;
 }
 
 .rl-alerts-visible .rl-alerts {
@@ -56,7 +60,7 @@
 .rl-alerts-wrapper {
 	overflow: hidden;
 	font-size: 16px;
-	padding: 20px 40px 20px 0;
+	padding: 20px 60px 3px 0;
 }
 
 .rl-alerts a {
@@ -66,6 +70,7 @@
 
 .rl-alerts a:hover {
 	text-decoration: none;
+	color: inherit;
 }
 
 .rl-alerts-close {

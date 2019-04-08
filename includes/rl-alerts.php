@@ -15,11 +15,17 @@ acf_add_options_page( array(
 function rl_alerts_fun( $atts ) {
 	ob_start();
 	if ( have_rows( "rl_alerts", "options" ) ):
+		
+		$bg_color = ( $bg_color = get_field( "rl_alerts_bg_color", "options" ) ) ? 'background-color: ' . $bg_color . ';' : '';
+		$text_color = ( $text_color = get_field( "rl_alerts_text_color", "options" ) ) ? 'color: ' . $text_color . ';' : '';
+		$style = ( $bg_color || $text_color ) ? ' style="' . $bg_color . $text_color . '"' : '';
+		
 		?>
-		<div id="rl-alerts" class="rl-alerts">
+		<div id="rl-alerts" class="rl-alerts"<?php echo $style; ?>>
 			<div class="inside rl-alerts-inside">
 				<div class="rl-alerts-wrapper">
-					<?php while( have_rows( "rl_alerts", "options" ) ): the_row(); ?>
+					<?php while( have_rows( "rl_alerts", "options" ) ): the_row();
+						?>
 						<div class="rl-alert-item" data-id="<?php echo get_row_index(); ?>">
 							<?php the_sub_field( 'alert' ); ?>
 						</div>
@@ -61,15 +67,14 @@ add_shortcode( 'rl_alert_tag', 'rl_alert_tag_fun' );
 
 
 // register field group
-
 if( function_exists('acf_add_local_field_group') ):
 	
 	acf_add_local_field_group(array(
-		'key' => 'group_5bf480854eb8d',
+		'key' => 'group_5caaab1a17454',
 		'title' => 'Alerts',
 		'fields' => array(
 			array(
-				'key' => 'field_5bf48197c76c4',
+				'key' => 'field_5caaab215c621',
 				'label' => 'Alerts',
 				'name' => 'rl_alerts',
 				'type' => 'repeater',
@@ -81,14 +86,14 @@ if( function_exists('acf_add_local_field_group') ):
 					'class' => '',
 					'id' => '',
 				),
-				'collapsed' => '',
+				'collapsed' => 'field_5caaab2e5c623',
 				'min' => 0,
 				'max' => 0,
 				'layout' => 'table',
-				'button_label' => '',
+				'button_label' => 'Add Alert',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5bf481a2c76c5',
+						'key' => 'field_5caaab275c622',
 						'label' => 'Alert',
 						'name' => 'alert',
 						'type' => 'wysiwyg',
@@ -103,10 +108,40 @@ if( function_exists('acf_add_local_field_group') ):
 						'default_value' => '',
 						'tabs' => 'all',
 						'toolbar' => 'full',
-						'media_upload' => 0,
+						'media_upload' => 1,
 						'delay' => 0,
 					),
 				),
+			),
+			array(
+				'key' => 'field_5caaab2e5c623',
+				'label' => 'Background Color',
+				'name' => 'rl_alerts_bg_color',
+				'type' => 'color_picker',
+				'instructions' => 'Default: #fa9632',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '#fa9632',
+			),
+			array(
+				'key' => 'field_5cab5f90db013',
+				'label' => 'Text Color',
+				'name' => 'rl_alerts_text_color',
+				'type' => 'color_picker',
+				'instructions' => 'Default: #000000',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '#000000',
 			),
 		),
 		'location' => array(
@@ -120,7 +155,7 @@ if( function_exists('acf_add_local_field_group') ):
 		),
 		'menu_order' => 0,
 		'position' => 'normal',
-		'style' => 'seamless',
+		'style' => 'default',
 		'label_placement' => 'top',
 		'instruction_placement' => 'label',
 		'hide_on_screen' => '',
